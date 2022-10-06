@@ -8,7 +8,7 @@ import android.widget.RadioGroup;
 
 import com.example.ejer_radiogroup_radiobutton.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityMainBinding binding;
 
@@ -18,10 +18,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.rGroup.setOnCheckedChangeListener(this);
+        //binding.rGroup.setOnCheckedChangeListener(this);
+        binding.rGroup.setOnClickListener(this);
     }
 
-    @Override
+    /*@Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         int valor1 = Integer.parseInt(binding.txtValor1.getText().toString());
         int valor2 = Integer.parseInt(binding.txtValor2.getText().toString());
@@ -38,6 +39,32 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         } else if (R.id.rBDivision == i) {
             double division = valor1 / valor2;
             binding.txtResultado.setText((int) division);
+        }
+    }*/
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        int valor1 = Integer.parseInt(binding.txtValor1.getText().toString());
+        int valor2 = Integer.parseInt(binding.txtValor2.getText().toString());
+
+        switch (id) {
+            case R.id.rBSuma:
+                int suma = valor1 + valor2;
+                binding.txtResultado.setText(suma);
+                break;
+            case R.id.rBResta:
+                int resta = valor1 - valor2;
+                binding.txtResultado.setText(resta);
+                break;
+            case R.id.rBMultiplicacion:
+                int multiplicacion = valor1 * valor2;
+                binding.txtResultado.setText(multiplicacion);
+                break;
+            case R.id.rBDivision:
+                double division = valor1 / valor2;
+                binding.txtResultado.setText((int) division);
+                break;
         }
     }
 }
