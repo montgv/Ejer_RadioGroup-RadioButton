@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ejer_RadioGroup-RadioButton</string>
+    <string name="valor1">Valor 1</string>
+    <string name="valor2">Valor 2</string>
+    <string name="suma">Suma</string>
+    <string name="resta">Resta</string>
+    <string name="multiplicacion">Multiplicación</string>
+    <string name="division">División</string>
+    <string name="resultado">Resultado</string>
+</resources>
